@@ -1,0 +1,23 @@
+.classy-posts-display > div {
+	display: flex;
+	justify-content: space-between;
+}
+.classy-posts-display > div > span {
+	font-weight: bold;
+}
+
+.classy-posts-display > div > p {
+	margin: 0;
+}
+
+.classy-posts-display .difficulty {
+	color: #111111;
+}
+
+.classy-posts-display .time {
+	color: #4b4b4b;
+}
+
+.classy-posts-display .cost {
+	color: #888888;
+}

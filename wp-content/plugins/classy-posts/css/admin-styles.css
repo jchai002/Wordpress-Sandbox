@@ -1,0 +1,19 @@
+.classy-posts-metabox {
+	font-size: 16px;
+	padding-top: 15px;
+}
+
+.classy-posts-metabox input {
+	padding:5px;
+}
+
+.classy-posts-metabox label{
+	display:block;
+	padding-bottom: 10px;
+}
+
+.classy-posts-metabox .form-group {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 15px;
+}
