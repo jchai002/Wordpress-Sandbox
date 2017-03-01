@@ -19,7 +19,7 @@ function jc_classy_posts_metabox_setup() {
 function jc_classy_posts_fields_callback($post){
 	wp_nonce_field(basename(__FILE__), 'jc_classy_posts_nonce');
 	$meta_data = get_post_meta($post->ID);
-	?>
+	ob_start(); ?>
 	<div class="wrap classy-posts-metabox">
 		<div class="form-group">
 			<label for="difficulty"><?php esc_html_e('Difficulty', 'jc_classy_posts_domain'); ?></label>
@@ -53,6 +53,7 @@ function jc_classy_posts_fields_callback($post){
 		</div>
 	</div>
 	<?php
+	echo ob_get_clean();
 }
 
 function jc_classy_posts_save($post_id){
