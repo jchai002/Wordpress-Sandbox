@@ -9,38 +9,13 @@ function jc_classy_posts_display($content) {
   $difficulty = get_post_meta($post->ID)['difficulty'][0];
   $time = get_post_meta($post->ID)['time'][0];
   $cost = get_post_meta($post->ID)['cost'][0];
+  $vegan_friendly = get_post_meta($post->ID)['vegan_friendly'][0] ? true : false;
 
   // if any of the custom meta info exist
-  if($difficulty || $time || $cost) {
-  // store html snippet in a buffer
-  ob_start(); ?>
-  <div class="classy-posts-display callout" style="background-color: <?php echo $background_color ?>;">
-
-    <?php if($difficulty) : ?>
-      <div class="difficulty">
-        <span>Difficulty</span>
-        <p><?php echo $difficulty ?></p>
-      </div>
-    <?php endif ?>
-
-    <?php if($time) : ?>
-      <div class="time">
-        <span>Time</span>
-        <p><?php echo $time ?></p>
-      </div>
-    <?php endif ?>
-
-    <?php if($cost) : ?>
-      <div class="cost">
-        <span>Cost</span>
-        <p><?php echo $cost ?></p>
-      </div>
-    <?php endif ?>
-  </div>
-
-  <?php
-   $display_box = ob_get_clean();
-   return $display_box . $content;
+  if($difficulty || $time || $cost || $vegan_friendly) {
+    // this file saves html into the $display_box variable
+    require_once(plugin_dir_path(__FILE__) . 'templates/display-box.php');
+    return $display_box . $content;
    } else {
      return $content;
    }
